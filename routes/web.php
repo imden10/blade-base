@@ -13,6 +13,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified'], 'as' => 'admin.'], function () {
+    Route::view('/', 'dashboard')->name('dashboard');
+    Route::view('test', 'tailwindcss')->name('test');
+    Route::view('e-commence/products', 'products')->name('e-commence.products');
+});
+
 Route::view('/', 'welcome');
 
 Route::view('dashboard', 'dashboard')
@@ -22,7 +28,5 @@ Route::view('dashboard', 'dashboard')
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
-
-Route::view('tailwindcss-test', 'tailwindcss')->name('tailwindcss');
 
 require __DIR__.'/auth.php';

@@ -1,4 +1,4 @@
-<x-test-layout>
+<x-app-layout>
     <div class="flex gap-4 p-2">
         <button class="py-2 px-5 bg-yg-500 text-white font-semibold rounded-full shadow-md hover:bg-yg-700 focus:outline-none focus:ring focus:ring-yg-400 focus:ring-opacity-75">
             My color
@@ -106,4 +106,6 @@
         </div>
     </div>
 
-</x-test-layout>
+
+    <x-forms.input>Hello</x-forms.input>
+</x-app-layout>
