@@ -17,9 +17,33 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified'], 'as' =>
     Route::view('/', 'dashboard')->name('dashboard');
     Route::view('test', 'tailwindcss')->name('test');
     Route::view('e-commence/products', 'products')->name('e-commence.products');
+
+    Route::view('form', 'form')->name('form');
+
 });
 
 Route::view('/', 'welcome');
+Route::get('/search-options', function (){
+    $res = [
+        'results' => [
+            [
+                'id' => 1,
+                'text' => '11111111'
+            ],
+            [
+                'id' => 2,
+                'text' => '222222222'
+            ],
+            [
+                'id' => 3,
+                'text' => '33333333'
+            ],
+        ]
+    ];
+
+
+    return json_encode($res);
+});
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

@@ -1,0 +1,9 @@
+<x-forms.text
+    :title="$title"
+    :placeholder="$placeholder"
+    :name="$name"
+    :value="$value"
+    :hint="$hint"
+    :required="$required"
+    :disabled="$disabled"
+/>

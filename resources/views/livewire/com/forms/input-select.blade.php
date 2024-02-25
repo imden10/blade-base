@@ -1,0 +1,17 @@
+<x-forms.input-select
+        :type="$type"
+        :title="$title"
+        :placeholder="$placeholder"
+        :name="$name"
+        :value="$value"
+        :icon="$icon"
+        :hint="$hint"
+        :min="$min"
+        :max="$max"
+        :step="$step"
+        :select_name="$select_name"
+        :select_value="$select_value"
+        :select_options="$select_options"
+        :required="$required"
+        :disabled="$disabled"
+    />
