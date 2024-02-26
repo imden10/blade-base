@@ -18,7 +18,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified'], 'as' =>
     Route::view('test', 'tailwindcss')->name('test');
     Route::view('e-commence/products', 'products')->name('e-commence.products');
 
-    Route::view('form', 'form')->name('form');
+    Route::view('form', 'form', ['breadcrumb' => [
+        [
+            'title' => 'Форми'
+        ]
+    ]])->name('form');
 
 });
 
