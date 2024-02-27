@@ -8,6 +8,10 @@
 
         <ul class="space-y-2 font-medium">
             <x-aside.item route="admin.dashboard" title="Dashboard" icon="fa-solid fa-house" is-active="{{ $this->isActive('admin.dashboard')}}" />
+            <x-aside.dropdown is-active-group="{{$this->isActiveGroup('admin.multimedia')}}" title="Медіафайли" icon="fa-solid fa-images">
+                <x-aside.sub-item route="admin.multimedia.images" title="Зображення" is-active="{{ $this->isActive('admin.multimedia.images')}}" />
+                <x-aside.sub-item route="admin.multimedia.files" title="Файли" is-active="{{ $this->isActive('admin.multimedia.files')}}" />
+            </x-aside.dropdown>
             <x-aside.item route="admin.test" title="Test" icon="fa-solid fa-pen" is-active="{{ $this->isActive('admin.test')}}" />
             <x-aside.item route="admin.form" title="Form" icon="fa-solid fa-edit" is-active="{{ $this->isActive('admin.form')}}" />
             <x-aside.dropdown is-active-group="{{$this->isActiveGroup('admin.e-commence')}}" title="E-commerce" icon="fa-solid fa-user">

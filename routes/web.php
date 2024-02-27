@@ -13,8 +13,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['prefix' => 'filemanager', 'middleware' => ['auth', 'verified']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
+
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified'], 'as' => 'admin.'], function () {
     Route::view('/', 'dashboard')->name('dashboard');
+    Route::get('/multimedia/files', [\App\Http\Controllers\FileManagerController::class, 'file'])->name('multimedia.files');
+    Route::get('/multimedia/images', [\App\Http\Controllers\FileManagerController::class, 'image'])->name('multimedia.images');
+
+
     Route::view('test', 'tailwindcss')->name('test');
     Route::view('e-commence/products', 'products')->name('e-commence.products');
 
