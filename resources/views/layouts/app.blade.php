@@ -12,6 +12,7 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" integrity="sha512-nMNlpuaDPrqlEls3IX/Q56H36qvBASwb3ipuo3MxeWbsQB1881ox0cRv7UPTgBlriqoynt35KjEwgGUeUXIPnw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="{{asset('/js/summernote/summernote-lite.min.css')}}" rel="stylesheet">
 
         <!-- Scripts -->
         @vite(['resources/css/app.css','resources/css/blade-base-admin.scss', 'resources/js/app.js'])
@@ -32,10 +33,17 @@
                 </div>
             </div>
         </div>
+
+        @include('layouts.com.x-image-info-modal')
+        @include('layouts.com.x-file-info-modal')
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
         <script src="{{asset('/js/notify.min.js')}}"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="{{asset('/js/summernote/summernote-lite-modified.js')}}"></script>
+        <script src="{{ asset('/js/summernote/summernote_plugins/summernote-uk-UA.js') }}"></script>
+        <script src="{{ asset('/js/summernote/summernote_plugins/summernote_lfm.js') }}"></script>
         @livewireScripts
         <script>
             function toggleAside(e)

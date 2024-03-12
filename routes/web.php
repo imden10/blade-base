@@ -21,6 +21,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified'], 'as' =>
     Route::view('/', 'dashboard')->name('dashboard');
     Route::get('/multimedia/files', [\App\Http\Controllers\FileManagerController::class, 'file'])->name('multimedia.files');
     Route::get('/multimedia/images', [\App\Http\Controllers\FileManagerController::class, 'image'])->name('multimedia.images');
+    Route::get('/multimedia/get-info', [\App\Http\Controllers\FileManagerController::class, 'getInfo'])->name('multimedia.get-info');
+    Route::get('/multimedia/get-info-file', [\App\Http\Controllers\FileManagerController::class, 'getInfoFile'])->name('multimedia.get-info-file');
 
 
     Route::view('test', 'tailwindcss')->name('test');

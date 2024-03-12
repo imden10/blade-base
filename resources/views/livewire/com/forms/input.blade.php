@@ -11,4 +11,6 @@
         :step="$step"
         :required="$required"
         :disabled="$disabled"
+        :class="$class"
+        :inline="$inline"
     />

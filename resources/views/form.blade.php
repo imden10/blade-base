@@ -4,7 +4,94 @@
           <x-breadcrumb :breadcrumb="$breadcrumb"/>
         </x-slot>
     @endisset
-    <x-forms.form action="/dasdf" method="post">
+    <x-forms.form method="get">
+        <livewire:com.forms.editor
+            title="Editor"
+            placeholder="Enter text"
+            name="text"
+            hint="Тут буде опис"
+        />
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
+            <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" />
+            <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" />
+            <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" />
+            <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+            <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" />
+            <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" />
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-4">
+            <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" inline />
+            <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" inline />
+            <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" inline />
+        </div>
+
+        <div class="flex flex-wrap gap-4 my-4">
+            <livewire:com.forms.image
+                title="Зображення"
+                name="image"
+                altName="image_alt"
+                value="/uploads/Logo-8-label-pink-black-bg.png"
+                altValue="Alt 123"
+            />
+            <livewire:com.forms.image
+                title="Зображення"
+                name="image"
+                altName="image_alt"
+                value="/uploads/Logo-8-label-pink-black-bg.png"
+                altValue="Alt 123"
+            />
+            <livewire:com.forms.image
+                title="Зображення"
+                name="image"
+                altName="image_alt"
+                value="/uploads/Logo-8-label-pink-black-bg.png"
+                altValue="Alt 123"
+            />
+            <livewire:com.forms.image
+                title="Зображення"
+                name="image"
+                altName="image_alt"
+                value="/uploads/Logo-8-label-pink-black-bg.png"
+                altValue="Alt 123"
+            />
+            <livewire:com.forms.image
+                title="Зображення"
+                name="image"
+                altName="image_alt"
+                value="/uploads/Logo-8-label-pink-black-bg.png"
+                altValue="Alt 123"
+            />
+            <livewire:com.forms.image
+                title="Зображення"
+                name="image"
+                altName="image_alt"
+                value="/uploads/Logo-8-label-pink-black-bg.png"
+                altValue="Alt 123"
+            />
+        </div>
+
+        <livewire:com.forms.clipboard id="clipboard_1" value="111111111" />
+        <livewire:com.forms.number title="Number" placeholder="123" name="name" icon="fa fa-pen" />
+        <livewire:com.forms.input placeholder="123" title="Livewire inputasd asd" name="name" icon="fa fa-pen" />
+
+        <livewire:com.forms.image
+            title="Зображення"
+            name="image"
+            altName="image_alt"
+            value="/uploads/Logo-8-label-pink-black-bg.png"
+            altValue="Alt 123"
+        />
+
+        <livewire:com.forms.file
+            title="Відео"
+            name="video"
+        />
+
         <livewire:com.forms.datepicker width="200px" icon="fa fa-calendar" format="dd.mm.yyyy" value="01-01-2023"/>
         <livewire:com.forms.daterangepicker
             icon="fa fa-calendar"
@@ -15,8 +102,7 @@
             placeholderEnd="Кінець"
         />
 
-        <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" />
-        <livewire:com.forms.number title="Number" placeholder="123" name="name" icon="fa fa-pen" />
+
         <livewire:com.forms.input-select
            title="Input select"
            name="amount"

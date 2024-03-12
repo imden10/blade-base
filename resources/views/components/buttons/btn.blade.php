@@ -29,6 +29,6 @@ if(isset($btn)){
 
 <button type="{{$type ?? 'button'}}"
         @isset($onclick) onclick="{{$onclick}}" @endisset
-        class="focus:outline-none font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 {{$btnClass}} @if(isset($disabled)) cursor-not-allowed @endif"
+        class="{{$class ?? ''}} focus:outline-none font-medium rounded-lg text-sm px-4 h-[42px] items-center inline-flex {{$btnClass}} @if(isset($disabled)) cursor-not-allowed @endif"
         @if(isset($disabled)) disabled @endif
 >{{$slot}}</button>

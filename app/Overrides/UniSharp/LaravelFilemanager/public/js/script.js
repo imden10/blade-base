@@ -482,7 +482,7 @@ function loadItems(page) {
                         var image = $('<div>').addClass('mime-icon ico-' + item.icon).append(icon);
                     }
 
-                    if(item.is_image){
+                    if(item.is_image || item.is_file){
                         if(paramSelectValue == item.name){
                             isSelected = true;
                             template.find('.square').addClass('selected');

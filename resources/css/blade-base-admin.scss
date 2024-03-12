@@ -83,3 +83,141 @@
         }
     }
 }
+
+// summernote **********************************************************************************************************
+.note-editable {
+    ul {
+        list-style:inherit;
+        padding: inherit;
+    }
+
+    ol {
+        list-style:auto;
+        padding: inherit;
+    }
+
+    blockquote {
+        border: 1px solid #e9ecef;
+        padding: 5px;
+    }
+
+    h1 {
+        font-weight: 700;
+        line-height: 1.2;
+        font-size: 26px;
+    }
+
+    h2 {
+        font-weight: 700;
+        line-height: 1.2;
+        font-size: 24px;
+    }
+
+    h3 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 20px;
+    }
+
+    h4 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 16px;
+    }
+
+    h5 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 15px;
+    }
+
+    h6 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 14px;
+    }
+}
+
+.note-modal-footer {
+    height: 70px;
+}
+
+.component-btn-default {
+    background-color: #3b82f6; // bg-blue-700
+    color: #fff; // text-white
+    font-size: 14px; // text-sm
+    padding: 10px 16px; // px-4
+    height: 42px; // h-[42px]
+    border-radius: 6px; // rounded-lg
+    font-weight: 500; // font-medium
+    display: inline-flex; // inline-flex
+    align-items: center; // items-center
+
+    &:hover {
+        background-color: #1e40af; // hover:bg-blue-800
+        cursor:pointer;
+    }
+
+    &:focus {
+        outline: none; // Видалення фокуса за замовчуванням
+        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); // focus:ring-4 focus:ring-blue-300
+    }
+}
+
+.note-dropdown-menu {
+    blockquote {
+        border: 1px solid #e9ecef;
+    }
+
+    h1 {
+        font-weight: 700;
+        line-height: 1.2;
+        font-size: 24px;
+        color: #333;
+    }
+
+    h2 {
+        font-weight: 700;
+        line-height: 1.2;
+        font-size: 22px;
+        color: #333;
+    }
+
+    h3 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 20px;
+        color: #333;
+    }
+
+    h4 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 18px;
+        color: #333;
+    }
+
+    h5 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 16px;
+        color: #333;
+    }
+
+    h6 {
+        font-weight: 600;
+        line-height: 1.2;
+        font-size: 14px;
+        color: #333;
+    }
+}
+
+.x-editor {
+    &.x-editor-error {
+        .note-editor {
+            &.note-frame {
+                border: 1px solid #c81e1e!important;
+            }
+        }
+    }
+}

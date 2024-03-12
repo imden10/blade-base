@@ -11,8 +11,9 @@
             placeholder="{{$placeholder ?? ''}}"
             @if(isset($required) && $required) required @endif
             @if(isset($disabled) && $disabled) disabled @endif
+            @isset($id) id="{{$id}}" @endisset
             @if(isset($rows) && $rows) rows="{{$rows}}" @else rows="4" @endif
-        >@if(isset($value) && $value){{$value}}@endif</textarea>
+        >{{(isset($value) && $value) ? $value : ''}}</textarea>
     @isset($error)
         <p class="mt-2 text-sm text-red-600 dark:text-red-500">{{$error}}</p>
     @endisset

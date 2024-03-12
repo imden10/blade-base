@@ -19,6 +19,18 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->includeHelpers();
+    }
+
+    /**
+     * Include helper functions
+     *
+     * @return void
+     */
+    protected function includeHelpers(): void
+    {
+        foreach (glob(__DIR__ . '/../Helpers/*.php') as $file) {
+            require_once $file;
+        }
     }
 }

@@ -58,8 +58,13 @@ return [
                 'image/pjpeg',
                 'image/png',
                 'image/gif',
+                'image/svg+xml',
                 'application/pdf',
                 'text/plain',
+                'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+                'application/msword',
+                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+                'video/mp4'
             ],
         ],
         'image' => [
