@@ -37,15 +37,14 @@
         @include('layouts.com.x-image-info-modal')
         @include('layouts.com.x-file-info-modal')
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-        <script src="{{asset('/js/notify.min.js')}}"></script>
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-        <script src="{{asset('/js/summernote/summernote-lite-modified.js')}}"></script>
-        <script src="{{ asset('/js/summernote/summernote_plugins/summernote-uk-UA.js') }}"></script>
-        <script src="{{ asset('/js/summernote/summernote_plugins/summernote_lfm.js') }}"></script>
-        @livewireScripts
-        <script>
+        <script data-navigate-once src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script data-navigate-once src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+        <script data-navigate-once src="{{asset('/js/notify.min.js')}}"></script>
+        <script data-navigate-once src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script data-navigate-once src="{{asset('/js/summernote/summernote-lite-modified.js')}}"></script>
+        <script data-navigate-once src="{{ asset('/js/summernote/summernote_plugins/summernote-uk-UA.js') }}"></script>
+        <script data-navigate-once src="{{ asset('/js/summernote/summernote_plugins/summernote_lfm.js') }}"></script>
+        <script data-navigate-once>
             function toggleAside(e)
             {
                 let sidebar = document.getElementById('bb-aside');
@@ -124,5 +123,7 @@
                 });
             }
         </script>
+        @livewireScripts
+        @isset($scripts) {{ $scripts }} @endisset
     </body>
 </html>

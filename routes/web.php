@@ -17,8 +17,10 @@ Route::group(['prefix' => 'filemanager', 'middleware' => ['auth', 'verified']], 
     \UniSharp\LaravelFilemanager\Lfm::routes();
 });
 
-Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'verified'], 'as' => 'admin.'], function () {
-    Route::view('/', 'dashboard')->name('dashboard');
+Route::group(['prefix' => 'admin', 'middleware' => ['auth','check_status','logging'], 'as' => 'admin.'], function () {
+    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::post('/users/check-users-online',  [\App\Http\Controllers\UserController::class, 'checkUsersOnlineStatus']);
+    Route::get('/users', \App\Livewire\Pages\Users\UserIndex::class)->name('users');
     Route::get('/multimedia/files', [\App\Http\Controllers\FileManagerController::class, 'file'])->name('multimedia.files');
     Route::get('/multimedia/images', [\App\Http\Controllers\FileManagerController::class, 'image'])->name('multimedia.images');
     Route::get('/multimedia/get-info', [\App\Http\Controllers\FileManagerController::class, 'getInfo'])->name('multimedia.get-info');
@@ -58,10 +60,6 @@ Route::get('/search-options', function (){
 
     return json_encode($res);
 });
-
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

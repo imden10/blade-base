@@ -5,6 +5,11 @@ import Datepicker from 'flowbite-datepicker/Datepicker';
 import DateRangePicker from 'flowbite-datepicker/DateRangePicker';
 import uk from "flowbite-datepicker/locales/uk";
 
+document.addEventListener('livewire:navigated', () => {
+    console.log('navigated');
+    initFlowbite();
+});
+
 window.selectedImage = null;
 
 // livewire selelct2 init
@@ -158,7 +163,7 @@ $(document).on('click','.x-image-info-btn', function (e){
     let $modal = $("#x_image_info_modal");
     $modal.find('.modal-body-container').html("");
     $modal.find('.modal-body-spinner').removeClass('hidden');
-    $modal.find('.x-image-info-alt-input').val('');
+    $modal.find('.x-image-info-alt-input input').val('');
 
     $.ajax({
         url: "/admin/multimedia/get-info",
@@ -172,7 +177,7 @@ $(document).on('click','.x-image-info-btn', function (e){
             if (res.success) {
                 $modal.find('.modal-body-spinner').addClass('hidden');
                 $modal.find('.modal-body-container').html(res.html);
-                $modal.find('.x-image-info-alt-input').val(res.alt_value);
+                $modal.find('.x-image-info-alt-input input').val(res.alt_value);
                 $modal.find('.x-image-info-clipboard').val(res.full_url);
                 $modal.find('.x-image-info-alt-container').data('id',componentId)
             }
@@ -226,11 +231,12 @@ $(document).on('click','.x-clipboard .copy-btn',function(e) {
 
 $(document).on('click','.x-image-info-alt-save-btn',function (){
     let $altContainer = $(this).closest('.x-image-info-alt-container');
+
     let componentId = $altContainer.closest(".x-image-info-alt-container").data("id");
 
     let $iconSave = $altContainer.find('.icon-save');
     let $iconSaved = $altContainer.find('.icon-saved');
-    let altVal = $altContainer.find('.x-image-info-alt-input').val();
+    let altVal = $altContainer.find('.x-image-info-alt-input input').val();
 
     $iconSave.addClass('hidden');
     $iconSaved.removeClass('hidden');
@@ -238,7 +244,7 @@ $(document).on('click','.x-image-info-alt-save-btn',function (){
     $("#" + componentId).find(".media-input-alt").val(altVal);
 });
 
-$(document).on('input','.x-image-info-alt-input',function (){
+$(document).on('input','.x-image-info-alt-input input',function (){
     let $altContainer = $(this).closest('.x-image-info-alt-container');
     let $iconSave = $altContainer.find('.icon-save');
     let $iconSaved = $altContainer.find('.icon-saved');
@@ -382,4 +388,44 @@ window.Livewire.on('x-editor-init', (param) => {
 $(document).on('click', '.note-editing-area img', function(event) {
     console.log('Картинка була натиснута:', $(this));
     // Тут ви можете викликати функцію або виконати інші дії для обробки натискання на картинку
+});
+
+// grid table functions ************************************************************************************************
+$('.check-all').on('change', function () {
+    if ($(this).prop('checked')) {
+        $('.checkbox-item').prop('checked', true);
+    } else {
+        $('.checkbox-item').prop('checked', false);
+    }
+
+    if($(this).closest('.x-grid').find('.group-actions-btn')){
+        if($('.checkbox-item:checked').length){
+            $(this).closest('.x-grid').find('.group-actions-btn').prop('disabled',false);
+        } else {
+            $(this).closest('.x-grid').find('.group-actions-btn').prop('disabled',true);
+        }
+    }
+});
+
+$('.checkbox-item').on('change', function () {
+    let checked = 0;
+    $('.checkbox-item').each(function () {
+        if ($(this).prop('checked')) {
+            checked++;
+        }
+    });
+
+    if ($('.checkbox-item').length === checked) {
+        $('.check-all').prop('checked', true)
+    } else {
+        $('.check-all').prop('checked', false)
+    }
+
+    if($(this).closest('.x-grid').find('.group-actions-btn')){
+        if($('.checkbox-item:checked').length){
+            $(this).closest('.x-grid').find('.group-actions-btn').prop('disabled',false);
+        } else {
+            $(this).closest('.x-grid').find('.group-actions-btn').prop('disabled',true);
+        }
+    }
 });

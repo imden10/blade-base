@@ -40,36 +40,36 @@
             />
             <livewire:com.forms.image
                 title="Зображення"
-                name="image"
-                altName="image_alt"
+                name="image2"
+                altName="image_alt2"
                 value="/uploads/Logo-8-label-pink-black-bg.png"
                 altValue="Alt 123"
             />
             <livewire:com.forms.image
                 title="Зображення"
-                name="image"
-                altName="image_alt"
+                name="image3"
+                altName="image_alt3"
                 value="/uploads/Logo-8-label-pink-black-bg.png"
                 altValue="Alt 123"
             />
             <livewire:com.forms.image
                 title="Зображення"
-                name="image"
-                altName="image_alt"
+                name="image4"
+                altName="image_alt4"
                 value="/uploads/Logo-8-label-pink-black-bg.png"
                 altValue="Alt 123"
             />
             <livewire:com.forms.image
                 title="Зображення"
-                name="image"
-                altName="image_alt"
+                name="image5"
+                altName="image_alt5"
                 value="/uploads/Logo-8-label-pink-black-bg.png"
                 altValue="Alt 123"
             />
             <livewire:com.forms.image
                 title="Зображення"
-                name="image"
-                altName="image_alt"
+                name="image6"
+                altName="image_alt6"
                 value="/uploads/Logo-8-label-pink-black-bg.png"
                 altValue="Alt 123"
             />
@@ -120,6 +120,11 @@
         <livewire:com.forms.radio title="UK" name="lang" value="uk" checked="true" />
         <livewire:com.forms.radio title="EN" name="lang" value="en" />
 
+        <div class="my-6">
+            <x-buttons.dropdown title="Групові дії">
+                <x-buttons.dropdown-item title="Видалити" class="delete-all-btn" />
+            </x-buttons.dropdown>
+        </div>
 
         <div>
             <x-buttons.btn>Default</x-buttons.btn>

@@ -7,6 +7,7 @@ use Livewire\Component;
 class Checkbox extends Component
 {
     public $title;
+    public $class;
     public $name;
     public $hint;
     public $checked;
@@ -16,11 +17,13 @@ class Checkbox extends Component
         $title = '',
         $name = '',
         $hint = '',
+        $class = '',
         $checked = false,
         $disabled = false
     )
     {
         $this->title = $title;
+        $this->class = $class;
         $this->name = $name;
         $this->hint = $hint;
         $this->checked = $checked;
