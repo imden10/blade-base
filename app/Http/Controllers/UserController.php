@@ -136,22 +136,4 @@ class UserController extends Controller
 
         return redirect()->route('admins.index')->with('success', __('Deleted successfully!'));
     }
-
-    public function checkUsersOnlineStatus(Request $request)
-    {
-        $userIds = $request->input('user_ids');
-        $usersOnlineStatus = [];
-
-        foreach ($userIds as $userId) {
-            $user = User::findOrFail($userId);
-            $lastSeenAt = Carbon::parse($user->last_seen_at);
-
-            $usersOnlineStatus[$userId] = $lastSeenAt->diffInMinutes(Carbon::now()) < 1; // Час онлайну - наприклад, менше 1 хвилини
-        }
-
-        return response()->json([
-            'success' => true,
-            'data'    => $usersOnlineStatus,
-        ]);
-    }
 }

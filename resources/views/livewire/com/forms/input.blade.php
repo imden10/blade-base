@@ -6,6 +6,7 @@
         :value="$value"
         :icon="$icon"
         :hint="$hint"
+        :error="$error"
         :min="$min"
         :max="$max"
         :step="$step"
@@ -13,4 +14,5 @@
         :disabled="$disabled"
         :class="$class"
         :inline="$inline"
+        :width="$width"
     />

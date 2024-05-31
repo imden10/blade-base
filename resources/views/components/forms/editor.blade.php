@@ -1,6 +1,5 @@
-<div class="mb-6"
-     x-data
-     wire:ignore
+<div class="mb-6 x-editor @if(isset($error) && $error) x-editor-error @endif"
+     x-data="{is_disable:{{(isset($disabled) && $disabled) ? '1' : '0'}}}"
      x-init="$($refs.textarea).summernote({
     lang: 'uk-UA',
     height: 250,
@@ -41,24 +40,21 @@
             @this.set('{{$name ?? ''}}', contents);
         }
     }
-})"
->
+});
+if(is_disable){
+    $($refs.textarea).summernote('disable');
+}
+">
     @isset($title)
     <label class="block mb-2 text-sm font-medium @if(isset($error) && $error) text-red-700 dark:text-red-500 @else text-gray-900 dark:text-white @endif">{{$title}}</label>
     @endisset
+    <div wire:ignore>
         <textarea
             x-ref="textarea"
-            {{$attributes->except('class')}}
+            {{$attributes->except(['class','disabled'])}}
             name="{{$name ?? ''}}"
-            class="@if(isset($editor) && $editor) sm-editor @endif text-gray-700 border-gray-300 text-sm rounded-lg focus:ring-{{ (isset($error) && $error) ? 'red' : 'blue' }}-500 focus:border-{{ (isset($error) && $error) ? 'red' : 'blue' }}-500 block w-full p-2.5
-                  @if(isset($disabled) && $disabled) bg-gray-100 cursor-not-allowed @else bg-gray-50 @endif
-                  @if(isset($error) && $error) bg-red-50 border border-red-500 text-red-900 placeholder-red-700 @endif"
-            placeholder="{{$placeholder ?? ''}}"
-            @if(isset($required) && $required) required @endif
-            @if(isset($disabled) && $disabled) disabled @endif
-            @isset($id) id="{{$id}}" @endisset
-            @if(isset($rows) && $rows) rows="{{$rows}}" @else rows="4" @endif
         >{{(isset($value) && $value) ? $value : ''}}</textarea>
+    </div>
     @if(isset($error) && $error)
         <p class="mt-2 text-sm text-red-600">{{$error}}</p>
     @endif

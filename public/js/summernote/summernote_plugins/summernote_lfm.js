@@ -58,9 +58,12 @@ const LFMButtonChange = function (context) {
         click: function () {
             let $image = window.selectedImage;
             let selectPath = $image.attr('src');
+            selectPath = selectPath.substring(selectPath.indexOf('/uploads'));
+
             let parts = selectPath.split("/");
             let selectFile = parts.pop();
             let selectFolder = parts.join("/");
+
             let url = '/filemanager?type=image&path=' + encodeURIComponent(selectFolder) + '&select=' + encodeURIComponent(selectFile);
 
             window.open( url, 'FileManager', 'width=900,height=600');

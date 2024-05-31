@@ -19,8 +19,10 @@ Route::group(['prefix' => 'filemanager', 'middleware' => ['auth', 'verified']], 
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth','check_status','logging'], 'as' => 'admin.'], function () {
     Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-    Route::post('/users/check-users-online',  [\App\Http\Controllers\UserController::class, 'checkUsersOnlineStatus']);
+
     Route::get('/users', \App\Livewire\Pages\Users\UserIndex::class)->name('users');
+    Route::get('/users/create', \App\Livewire\Pages\Users\UserCreate::class)->name('users.create');
+
     Route::get('/multimedia/files', [\App\Http\Controllers\FileManagerController::class, 'file'])->name('multimedia.files');
     Route::get('/multimedia/images', [\App\Http\Controllers\FileManagerController::class, 'image'])->name('multimedia.images');
     Route::get('/multimedia/get-info', [\App\Http\Controllers\FileManagerController::class, 'getInfo'])->name('multimedia.get-info');
@@ -41,25 +43,22 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth','check_status','loggi
 Route::view('/', 'welcome');
 Route::get('/search-options', function (){
     $res = [
-        'results' => [
-            [
-                'id' => 1,
-                'text' => '11111111'
-            ],
-            [
-                'id' => 2,
-                'text' => '222222222'
-            ],
-            [
-                'id' => 3,
-                'text' => '33333333'
-            ],
-        ]
+        [
+            'id' => 1,
+            'text' => '11111111'
+        ],
+        [
+            'id' => 2,
+            'text' => '222222222'
+        ],
+        [
+            'id' => 3,
+            'text' => '33333333'
+        ],
     ];
 
-
     return json_encode($res);
-});
+})->name('search-options');
 
 Route::view('profile', 'profile')
     ->middleware(['auth'])

@@ -2,6 +2,7 @@
 
 namespace UniSharp\LaravelFilemanager\Controllers;
 
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use UniSharp\LaravelFilemanager\Events\FileIsMoving;
 use UniSharp\LaravelFilemanager\Events\FileWasMoving;

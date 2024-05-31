@@ -29,8 +29,9 @@ if(isset($btn)){
 ?>
 
 <a href="{{$href ?? 'javascript:void(0)'}}"
+   {{$attributes->except(['href','class'])}}
    @isset($blank) target="_blank" @endisset
    @isset($onclick) onclick="{{$onclick}}" @endisset
    @if(isset($disabled)) disabled @endif
-   class="focus:outline-none font-medium rounded-lg text-sm px-4 py-2 me-2 mb-2 {{$btnClass}} @if(isset($disabled)) pointer-events-none @endif"
+   class="{{$class ?? ''}} focus:outline-none font-medium rounded-lg text-sm px-4 h-[42px] items-center inline-flex {{$btnClass}} @if(isset($disabled)) cursor-not-allowed @endif"
 >{{$slot}}</a>

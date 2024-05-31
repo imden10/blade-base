@@ -20,11 +20,14 @@ class Number extends Component
     public $disabled;
     public $class;
     public $inline;
+    public $error;
+    public $width;
 
     public function mount(
         $title = '',
         $placeholder = '',
         $name = '',
+        $error = '',
         $hint = '',
         $value = '',
         $icon = '',
@@ -35,6 +38,7 @@ class Number extends Component
         $disabled = false,
         $class = '',
         $inline = null,
+        $width = "100%",
     )
     {
         $this->type = 'number';
@@ -51,6 +55,8 @@ class Number extends Component
         $this->disabled = $disabled;
         $this->class = $class;
         $this->inline = $inline;
+        $this->error = $error;
+        $this->width = $width;
     }
 
     public function render()

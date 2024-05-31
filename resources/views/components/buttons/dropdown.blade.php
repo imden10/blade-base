@@ -1,5 +1,5 @@
 <?php
-$btnClass = "text-white focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " . (isset($disabled) ? 'bg-blue-400' : 'hover:bg-blue-800 bg-blue-700');
+$btnClass = "text-white focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 " . ((isset($disabled) && $disabled == "true") ? 'bg-blue-400' : 'hover:bg-blue-800 bg-blue-700');
 if(isset($btn)){
     switch ($btn){
         case "dark":
@@ -31,8 +31,8 @@ $dropdownToggle = "dropdown_toggle_" . uniqid(time());
 
 <div class="inline-block">
     <button type="button" data-dropdown-toggle="{{$dropdownToggle}}"
-            class="{{$class ?? ''}} focus:outline-none font-medium rounded-lg text-sm px-4 h-[42px] items-center inline-flex {{$btnClass}} @if(isset($disabled)) cursor-not-allowed @endif"
-            @if(isset($disabled)) disabled @endif
+            class="{{$class ?? ''}} focus:outline-none font-medium rounded-lg text-sm px-4 h-[42px] items-center inline-flex {{$btnClass}} @if(isset($disabled) && $disabled == 'true') cursor-not-allowed @endif"
+            @if(isset($disabled) && $disabled == 'true') disabled @endif
     >
         {{$title}} <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>

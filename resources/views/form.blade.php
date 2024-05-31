@@ -5,13 +5,6 @@
         </x-slot>
     @endisset
     <x-forms.form method="get">
-        <livewire:com.forms.editor
-            title="Editor"
-            placeholder="Enter text"
-            name="text"
-            hint="Тут буде опис"
-        />
-
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 my-4">
             <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" />
             <livewire:com.forms.input title="Livewire input" placeholder="123" name="name" icon="fa fa-pen" />
@@ -77,7 +70,7 @@
 
         <livewire:com.forms.clipboard id="clipboard_1" value="111111111" />
         <livewire:com.forms.number title="Number" placeholder="123" name="name" icon="fa fa-pen" />
-        <livewire:com.forms.input placeholder="123" title="Livewire inputasd asd" name="name" icon="fa fa-pen" />
+{{--        <livewire:com.forms.input placeholder="123" title="Livewire inputasd asd" name="name" icon="fa fa-pen" />--}}
 
         <livewire:com.forms.image
             title="Зображення"

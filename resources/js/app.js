@@ -10,6 +10,31 @@ document.addEventListener('livewire:navigated', () => {
     initFlowbite();
 });
 
+window.Livewire.hook('commit', ({ component, commit, respond, succeed, fail }) => {
+    // Runs immediately before a commit's payload is sent to the server...
+    console.log('updating');
+    respond(() => {
+        // Runs after a response is received but before it's processed...
+        console.log('updating after');
+    })
+
+    succeed(({ snapshot, effect }) => {
+        // Runs after a successful response is received and processed
+        // with a new snapshot and list of effects...
+        console.log('Runs after a successful response');
+        setTimeout(function (){
+            // component.el.querySelector("#searchInput").focus(); todo скрив временно
+        },1);
+        setTimeout(function (){
+            initFlowbite();
+        },100);
+    })
+
+    fail(() => {
+        // Runs if some part of the request failed...
+    })
+});
+
 window.selectedImage = null;
 
 // livewire selelct2 init
@@ -333,56 +358,6 @@ $(document).on('click','.x-file-info-btn', function (e){
             }
         }
     });
-});
-
-// editor init
-window.Livewire.on('x-editor-init', (param) => {
-    if(param[0].id){
-        const summernote_options = {
-            lang: 'uk-UA',
-            height: 250,
-            minHeight: null,
-            maxHeight: null,
-            toolbar: [
-                ['undoredo', ['undo', 'redo']],
-                ['style', ['style']],
-                ['font', ['bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear']],
-                ['fontname', ['fontname']],
-                ['fontsize', ['fontsize']],
-                ['height', ['height']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'hr']],
-                ['view', ['fullscreen', 'codeview']],
-                ['popovers', ['img']],
-                ['typography', ['typography']]
-            ],
-            buttons: {
-                img: LFMButton,
-                uploadImgButton: LFMButtonChange
-            },
-            styleTags: [
-                'p', { title: 'Blockquote', tag: 'blockquote', className: 'blockquote', value: 'blockquote' }, 'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'
-            ],
-            popover: {
-                image: [
-                    ['custom', ['uploadImgButton']],
-                    ['resize', ['resizeFull', 'resizeHalf', 'resizeQuarter', 'resizeNone']],
-                    ['float', ['floatLeft', 'floatRight', 'floatNone']],
-                    ['remove', ['removeMedia']]
-                ]
-            },
-            inheritPlaceholder: true,
-        };
-
-        let $textarea = $("#" + param[0].id);
-        $textarea.summernote(summernote_options);
-
-        if(param[0].disabled){
-            $textarea.summernote('disable');
-        }
-    }
 });
 
 $(document).on('click', '.note-editing-area img', function(event) {

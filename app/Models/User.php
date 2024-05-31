@@ -124,6 +124,16 @@ class User extends Authenticatable
     }
 
     /**
+     * @return bool
+     */
+    public function getOnlineAttribute(): bool
+    {
+        $lastSeenAt = Carbon::parse($this->last_seen_at);
+
+        return $lastSeenAt->diffInMinutes(Carbon::now()) < 1; // Час онлайну - наприклад, менше 1 хвилини
+    }
+
+    /**
      * @return \string[][]
      */
     public static function getStatuses(): array

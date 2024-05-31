@@ -20,6 +20,8 @@ class Input extends Component
     public $disabled;
     public $class;
     public $inline;
+    public $error;
+    public $width;
 
     public function mount(
         $type = 'text',
@@ -27,6 +29,7 @@ class Input extends Component
         $placeholder = '',
         $name = '',
         $hint = '',
+        $error = '',
         $value = '',
         $icon = '',
         $min = null,
@@ -36,6 +39,7 @@ class Input extends Component
         $disabled = false,
         $class = '',
         $inline = null,
+        $width = "100%",
     )
     {
         $this->type = $type;
@@ -43,6 +47,7 @@ class Input extends Component
         $this->placeholder = $placeholder;
         $this->name = $name;
         $this->hint = $hint;
+        $this->error = $error;
         $this->value = $value;
         $this->icon = $icon;
         $this->min = $min;
@@ -52,6 +57,7 @@ class Input extends Component
         $this->disabled = $disabled;
         $this->class = $class;
         $this->inline = $inline;
+        $this->width = $width;
     }
 
     public function render()

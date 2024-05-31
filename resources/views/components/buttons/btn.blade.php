@@ -28,6 +28,7 @@ if(isset($btn)){
 ?>
 
 <button type="{{$type ?? 'button'}}"
+        {{$attributes->except(['type','class'])}}
         @isset($onclick) onclick="{{$onclick}}" @endisset
         class="{{$class ?? ''}} focus:outline-none font-medium rounded-lg text-sm px-4 h-[42px] items-center inline-flex {{$btnClass}} @if(isset($disabled)) cursor-not-allowed @endif"
         @if(isset($disabled)) disabled @endif
